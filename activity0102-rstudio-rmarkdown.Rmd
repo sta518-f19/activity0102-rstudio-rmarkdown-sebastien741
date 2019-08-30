@@ -18,14 +18,27 @@ library(datasauRus)
 ```
 
 
+
 ### Exercise 1
 
 (it has 1846 rows and 3 columns. the 3 variables are dataset, x and y.)
 
 ### Exercise 2
 
-The plot looks like the head of a dinosaur. The correlation ceofficient is -0.0645.
+The plot looks like the head of a dinosaur. 
 
+Create the data set star: 
+```{r create_data-dino}
+dino_data <- datasaurus_dozen %>% filter(dataset=="dino")
+```
+Plot the data: 
+```{r plot-dino}
+ggplot(data=dino_data, mapping=aes(x=x, y=y))+geom_point()
+```
+Find the correlation coefficient:
+```{r cor-dino}
+dino_data %>% summarise(r=cor(x,y))
+```
 ### Exercise 3
 
 
